@@ -1,5 +1,6 @@
 package com.inkapplications.telegram.client
 
+import com.inkapplications.telegram.structures.WebhookInfo
 import com.inkapplications.telegram.structures.WebhookParameters
 
 /**
@@ -18,4 +19,12 @@ interface TelegramBotClient {
      * @param parameters Webhook definition and options.
      */
     suspend fun setWebhook(parameters: WebhookParameters)
+
+    /**
+     * Use this method to get current webhook status.
+     *
+     * If the bot is using getUpdates, will return an object with the url
+     * field empty.
+     */
+    suspend fun getWebhookInfo(): WebhookInfo
 }
