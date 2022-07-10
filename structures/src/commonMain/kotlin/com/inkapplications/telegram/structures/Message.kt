@@ -146,7 +146,7 @@ data class Message(
      * Optional. For text messages, special entities like usernames, URLs,
      * bot commands, etc. that appear in the text
      */
-    val entities: MessageEntity? = null,
+    val entities: List<MessageEntity>? = null,
 
     /**
      * Optional. Message is an animation, information about the animation.

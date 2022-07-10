@@ -7,7 +7,7 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(libraries.kotlinx.serialization.json)
-                implementation(libraries.kotlinx.datetime)
+                api(libraries.kotlinx.datetime)
             }
         }
     }

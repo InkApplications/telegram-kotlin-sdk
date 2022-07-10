@@ -13,4 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
+include("client")
 include("structures")
