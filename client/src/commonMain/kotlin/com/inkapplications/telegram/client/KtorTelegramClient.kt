@@ -27,15 +27,26 @@ internal class KtorTelegramClient(
     }
 
     override suspend fun setWebhook(parameters: WebhookParameters) {
-        client.post {
-            telegramEndpoint("setWebhook")
+        post<Boolean>("setWebhook") {
             jsonBody(parameters)
-        }.responseOrThrow<Boolean>()
+        }
     }
 
     override suspend fun getWebhookInfo(): WebhookInfo {
-        return client.get {
-            telegramEndpoint("getWebhookInfo")
+        return get("getWebhookInfo")
+    }
+
+    private suspend inline fun <reified T> get(vararg path: String, builder: HttpRequestBuilder.() -> Unit = {}): T {
+        return client.post {
+            telegramEndpoint(*path)
+            builder()
+        }.responseOrThrow()
+    }
+
+    private suspend inline fun <reified T> post(vararg path: String, builder: HttpRequestBuilder.() -> Unit): T {
+        return client.post {
+            telegramEndpoint(*path)
+            builder()
         }.responseOrThrow()
     }
 
