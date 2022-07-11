@@ -63,17 +63,15 @@ internal class KtorTelegramClient(
     }
 
     private suspend inline fun <reified T> HttpResponse.responseOrThrow(): T {
-        return try {
-            val response = body<Response<T>>()
-
-            when (response) {
-                is Response.Result -> response.data
-                is Response.Error -> throw TelegramException.External(response)
-                else -> throw TelegramException.Internal("Unknown response type ${response::class.simpleName}>")
-            }
+        val response = try {
+             body<Response<T>>()
         } catch (e: Throwable) {
-            e.printStackTrace()
-            throw TelegramException.Internal("Unable to handle response with status ${status.value}")
+            throw TelegramException.Internal("Unable to parse response with status ${status.value}")
+        }
+        return when (response) {
+            is Response.Result -> response.data
+            is Response.Error -> throw TelegramException.External(response)
+            else -> throw TelegramException.Internal("Unknown response type ${response::class.simpleName}>")
         }
     }
 }
