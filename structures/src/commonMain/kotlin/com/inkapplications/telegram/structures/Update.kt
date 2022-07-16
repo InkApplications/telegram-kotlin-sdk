@@ -128,14 +128,7 @@ open class Update private constructor(
             else -> throw IllegalArgumentException("Unknown Message type: $data")
         }
 
-        override fun deserialize(data: String): KClass<out Update> = when (data) {
-            "message" -> MessageUpdate::class
-            "edited_message" -> EditedMessageUpdate::class
-            "channel_post" -> ChannelPostUpdate::class
-            "edited_channel_post" -> EditedChannelPostUpdate::class
-            "inline_query" -> InlineQueryUpdate::class
-            else -> throw IllegalArgumentException("Unknown Message type: $data")
-        }
+        override fun deserialize(data: String): KClass<out Update> = valueOf(data)
     }
 
     @Serializable
@@ -159,6 +152,17 @@ open class Update private constructor(
 
         // TODO: More fields in this object.
     )
+
+    companion object {
+        fun valueOf(key: String) = when (key) {
+            "message" -> MessageUpdate::class
+            "edited_message" -> EditedMessageUpdate::class
+            "channel_post" -> ChannelPostUpdate::class
+            "edited_channel_post" -> EditedChannelPostUpdate::class
+            "inline_query" -> InlineQueryUpdate::class
+            else -> throw IllegalArgumentException("Unknown Message type: $key")
+        }
+    }
 }
 
 

@@ -17,7 +17,7 @@ data class WebhookParameters(
 
     /**
      * Upload your public key certificate so that the root certificate in
-     * use can be checked. See our []self-signed guide] for details.
+     * use can be checked. See our [self-signed guide] for details.
      *
      * [self-signed guide]:https://core.telegram.org/bots/self-signed
      */

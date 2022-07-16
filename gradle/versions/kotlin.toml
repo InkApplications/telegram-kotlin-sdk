@@ -10,10 +10,6 @@ module = "org.jetbrains.kotlin:kotlin-gradle-plugin"
 version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-core"
 
-[libraries.kotlinx-coroutines-android]
-version.ref = "coroutines"
-module = "org.jetbrains.kotlinx:kotlinx-coroutines-android"
-
 [libraries.kotlinx-coroutines-test]
 version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
