@@ -1,5 +1,6 @@
 plugins {
     id("library.multiplatform")
+    id("com.inkapplications.publishing")
 }
 kotlin {
     sourceSets {
