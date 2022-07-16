@@ -23,5 +23,5 @@ version = "1.3.3"
 module = "org.jetbrains.kotlinx:kotlinx-serialization-json"
 
 [libraries.kotlinx-datetime]
-version = "0.4.0"
+version = "0.3.3"
 module = "org.jetbrains.kotlinx:kotlinx-datetime"
