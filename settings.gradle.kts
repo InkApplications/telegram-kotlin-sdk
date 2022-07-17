@@ -5,10 +5,14 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 dependencyResolutionManagement {
     versionCatalogs {
-        create("libraries") {
-            from(fileTree("gradle/versions").matching {
-                include("*.toml")
-            })
+        create("inkLibraries") {
+            from(files("gradle/versions/ink.toml"))
+        }
+        create("kotlinLibraries") {
+            from(files("gradle/versions/kotlin.toml"))
+        }
+        create("ktorLibraries") {
+            from(files("gradle/versions/ktor.toml"))
         }
     }
 }

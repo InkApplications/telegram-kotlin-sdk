@@ -1,22 +1,22 @@
 [versions]
 ktor = "2.0.3"
 
-[libraries.ktor-client-core]
+[libraries.client-core]
 version.ref = "ktor"
 module = "io.ktor:ktor-client-core"
 
-[libraries.ktor-serialization-json]
+[libraries.serialization-json]
 version.ref = "ktor"
 module = "io.ktor:ktor-serialization-kotlinx-json"
 
-[libraries.ktor-client-contentnegotiation]
+[libraries.client-contentnegotiation]
 version.ref = "ktor"
 module = "io.ktor:ktor-client-content-negotiation"
 
-[libraries.ktor-client-okhttp]
+[libraries.client-okhttp]
 version.ref = "ktor"
 module = "io.ktor:ktor-client-okhttp"
 
-[libraries.ktor-client-js]
+[libraries.client-js]
 version.ref = "ktor"
 module = "io.ktor:ktor-client-js"

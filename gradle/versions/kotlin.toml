@@ -2,26 +2,26 @@
 kotlin = "1.6.21"
 coroutines = "1.6.3"
 
-[libraries.kotlin-gradle]
+[libraries.gradle]
 version.ref = "kotlin"
 module = "org.jetbrains.kotlin:kotlin-gradle-plugin"
 
-[libraries.kotlinx-coroutines-core]
+[libraries.coroutines-core]
 version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-core"
 
-[libraries.kotlinx-coroutines-test]
+[libraries.coroutines-test]
 version.ref = "coroutines"
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-test"
 
-[libraries.kotlinx-serialization-plugin]
+[libraries.serialization-plugin]
 version.ref = "kotlin"
 module = "org.jetbrains.kotlin:kotlin-serialization"
 
-[libraries.kotlinx-serialization-json]
+[libraries.serialization-json]
 version = "1.3.3"
 module = "org.jetbrains.kotlinx:kotlinx-serialization-json"
 
-[libraries.kotlinx-datetime]
+[libraries.datetime]
 version = "0.3.3"
 module = "org.jetbrains.kotlinx:kotlinx-datetime"

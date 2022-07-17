@@ -7,21 +7,21 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 api(projects.structures)
-                implementation(libraries.ktor.client.core)
-                implementation(libraries.ktor.client.contentnegotiation)
-                implementation(libraries.ktor.serialization.json)
+                implementation(ktorLibraries.client.core)
+                implementation(ktorLibraries.client.contentnegotiation)
+                implementation(ktorLibraries.serialization.json)
             }
         }
 
         val jvmMain by getting {
             dependencies {
-                implementation(libraries.ktor.client.okhttp)
+                implementation(ktorLibraries.client.okhttp)
             }
         }
 
         val jsMain by getting {
             dependencies {
-                implementation(libraries.ktor.client.js)
+                implementation(ktorLibraries.client.js)
             }
         }
     }
