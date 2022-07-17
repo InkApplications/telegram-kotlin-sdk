@@ -13,7 +13,7 @@ data class MessageParameters(
      * (in the format @channelusername)
      */
     @SerialName("chat_id")
-    val chatId: String,
+    val chatId: ChatReference,
     /**
      * Text of the message to be sent, 1-4096 characters after entities parsing.
      */

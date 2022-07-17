@@ -13,7 +13,7 @@ data class Message(
      * Unique message identifier inside this chat
      */
     @SerialName("message_id")
-    val id: Long,
+    val id: ChatReference.Id,
 
     /**
      * Date the message was sent

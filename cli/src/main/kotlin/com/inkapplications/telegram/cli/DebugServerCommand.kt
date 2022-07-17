@@ -43,7 +43,7 @@ object DebugServerCommand: ClientCommand(
                                 is Update.MessageUpdate -> {
                                     echo("[Message]: ${update.message}")
                                     client.sendMessage(MessageParameters(
-                                        chatId = update.message.chat.id.toString(),
+                                        chatId = update.message.chat.id,
                                         text = "Hello World!"
                                     ).also { println(it) })
                                 }

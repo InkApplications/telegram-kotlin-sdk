@@ -12,7 +12,7 @@ data class Chat(
     /**
      * Unique identifier for this chat.
      */
-    val id: Long,
+    val id: ChatReference.Id,
 
     /**
      * Type of chat
