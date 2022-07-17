@@ -12,7 +12,7 @@ import kotlin.jvm.JvmInline
  */
 @JvmInline
 @Serializable(with = ChatType.InlineSerializer::class)
-value class ChatType private constructor(internal val key: String) {
+value class ChatType private constructor(val key: String) {
     companion object {
         val Private = ChatType("private")
         val Group = ChatType("group")

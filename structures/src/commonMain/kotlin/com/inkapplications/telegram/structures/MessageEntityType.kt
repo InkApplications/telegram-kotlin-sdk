@@ -12,7 +12,7 @@ import kotlin.jvm.JvmInline
  */
 @JvmInline
 @Serializable(with = MessageEntityType.InlineSerializer::class)
-value class MessageEntityType(private val key: String) {
+value class MessageEntityType private constructor(val key: String) {
     companion object {
         val Mention = MessageEntityType("mention")
         val HashTag = MessageEntityType("hashtag")

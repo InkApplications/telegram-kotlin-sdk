@@ -3,6 +3,7 @@ package com.inkapplications.telegram.cli
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.int
+import com.inkapplications.telegram.structures.MessageParameters
 import com.inkapplications.telegram.structures.Update
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -39,7 +40,13 @@ object DebugServerCommand: ClientCommand(
                         try {
                             val update = call.receive<Update>()
                             when (update) {
-                                is Update.MessageUpdate -> echo("[Message]: ${update.message}")
+                                is Update.MessageUpdate -> {
+                                    echo("[Message]: ${update.message}")
+                                    client.sendMessage(MessageParameters(
+                                        chatId = update.message.chat.id.toString(),
+                                        text = "Hello World!"
+                                    ).also { println(it) })
+                                }
                                 is Update.EditedMessageUpdate -> echo("[Message Edit]: ${update.message}")
                                 else -> echo("[Update]: $update")
                             }

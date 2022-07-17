@@ -1,5 +1,7 @@
 package com.inkapplications.telegram.client
 
+import com.inkapplications.telegram.structures.Message
+import com.inkapplications.telegram.structures.MessageParameters
 import com.inkapplications.telegram.structures.WebhookInfo
 import com.inkapplications.telegram.structures.WebhookParameters
 
@@ -27,4 +29,11 @@ interface TelegramBotClient {
      * field empty.
      */
     suspend fun getWebhookInfo(): WebhookInfo
+
+    /**
+     * Use this method to send text messages.
+     *
+     * @param parameters Definition for the message to be sent
+     */
+    suspend fun sendMessage(parameters: MessageParameters): Message
 }

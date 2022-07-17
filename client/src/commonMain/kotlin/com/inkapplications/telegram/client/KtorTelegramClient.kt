@@ -1,9 +1,6 @@
 package com.inkapplications.telegram.client
 
-import com.inkapplications.telegram.structures.Response
-import com.inkapplications.telegram.structures.TelegramException
-import com.inkapplications.telegram.structures.WebhookInfo
-import com.inkapplications.telegram.structures.WebhookParameters
+import com.inkapplications.telegram.structures.*
 import io.ktor.client.*
 import io.ktor.client.call.*
 import io.ktor.client.plugins.contentnegotiation.*
@@ -34,6 +31,12 @@ internal class KtorTelegramClient(
 
     override suspend fun getWebhookInfo(): WebhookInfo {
         return get("getWebhookInfo")
+    }
+
+    override suspend fun sendMessage(parameters: MessageParameters): Message {
+        return post("sendMessage") {
+            jsonBody(parameters)
+        }
     }
 
     private suspend inline fun <reified T> get(vararg path: String, builder: HttpRequestBuilder.() -> Unit = {}): T {
