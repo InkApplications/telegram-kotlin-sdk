@@ -1,9 +1,6 @@
 package com.inkapplications.telegram.client
 
-import com.inkapplications.telegram.structures.Message
-import com.inkapplications.telegram.structures.MessageParameters
-import com.inkapplications.telegram.structures.WebhookInfo
-import com.inkapplications.telegram.structures.WebhookParameters
+import com.inkapplications.telegram.structures.*
 
 /**
  * Actions available for a Telegram bot
@@ -36,4 +33,10 @@ interface TelegramBotClient {
      * @param parameters Definition for the message to be sent
      */
     suspend fun sendMessage(parameters: MessageParameters): Message
+
+    /**
+     * Use this method to send static .WEBP, animated .TGS, or video
+     * .WEBM stickers.
+     */
+    suspend fun sendSticker(parameters: StickerParameters): Message
 }
