@@ -39,6 +39,12 @@ internal class KtorTelegramClient(
         }
     }
 
+    override suspend fun sendSticker(parameters: StickerParameters): Message {
+        return post("sendSticker") {
+            jsonBody(parameters)
+        }
+    }
+
     private suspend inline fun <reified T> get(vararg path: String, builder: HttpRequestBuilder.() -> Unit = {}): T {
         return client.post {
             telegramEndpoint(*path)
